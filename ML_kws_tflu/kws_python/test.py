@@ -17,8 +17,8 @@ import argparse
 import numpy as np
 import tensorflow as tf
 
-from kws_python import data
-from kws_python import models
+from data import AudioProcessor, prepare_words_list
+from models import prepare_model_settings, create_model
 
 
 def test():
@@ -26,13 +26,13 @@ def test():
 
     Model is created and weights loaded from supplied command line arguments.
     """
-    model_settings = models.prepare_model_settings(len(data.prepare_words_list(FLAGS.wanted_words.split(','))),
+    model_settings = prepare_model_settings(len(prepare_words_list(FLAGS.wanted_words.split(','))),
                                                    FLAGS.sample_rate, FLAGS.clip_duration_ms, FLAGS.window_size_ms,
                                                    FLAGS.window_stride_ms, FLAGS.dct_coefficient_count)
 
-    model = models.create_model(model_settings, FLAGS.model_architecture, FLAGS.model_size_info, False)
+    model = create_model(model_settings, FLAGS.model_architecture, FLAGS.model_size_info, False)
 
-    audio_processor = data.AudioProcessor(data_exist=FLAGS.data_exist,
+    audio_processor = AudioProcessor(data_exist=FLAGS.data_exist,
                                           data_url=FLAGS.data_url,
                                           data_dir=FLAGS.data_dir,
                                           silence_percentage=FLAGS.silence_percentage,

@@ -116,27 +116,27 @@ if __name__ == '__main__':
     parser.add_argument(
         '--tflite_path',
         type=str,
-        default='',
+        default=r'C:\Users\MDOKUKIN1\Desktop\GitHub\ML_KWS\ML_kws_tflu\kws_python\max\DS_CNN\DS_CNN1\ds_cnn_quantized_new_data_no_aug.tflite',
         help='Path to tflite file that will be converted.')
     parser.add_argument(
         '--output_path',
         type=str,
-        default='',
+        default='output.cc',
         help='Path used for the output file.')
     parser.add_argument(
         '--window_size_ms',
         type=float,
-        default=30.0,
+        default=100.0,
         help='How long each spectrogram timeslice is',)
     parser.add_argument(
         '--window_stride_ms',
         type=float,
-        default=10.0,
+        default=50.0,
         help='How long each spectrogram timeslice is',)
     parser.add_argument(
         '--dct_coefficient_count',
         type=int,
-        default=40,
+        default=10,
         help='How many bins to use for the MFCC fingerprint',)
 
     FLAGS, _ = parser.parse_known_args()

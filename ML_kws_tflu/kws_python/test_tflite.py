@@ -17,9 +17,9 @@ import argparse
 import tensorflow as tf
 import numpy as np
 
-from kws_python import data
-from kws_python import models
-from kws_python.test import calculate_accuracy
+from data import AudioProcessor, prepare_words_list
+from models import prepare_model_settings
+from test import calculate_accuracy
 
 
 def tflite_test(model_settings, audio_processor, tflite_path):
@@ -96,11 +96,11 @@ def tflite_inference(input_data, tflite_path):
 
 
 def main():
-    model_settings = models.prepare_model_settings(len(data.prepare_words_list(FLAGS.wanted_words.split(','))),
+    model_settings = prepare_model_settings(len(prepare_words_list(FLAGS.wanted_words.split(','))),
                                                    FLAGS.sample_rate, FLAGS.clip_duration_ms, FLAGS.window_size_ms,
                                                    FLAGS.window_stride_ms, FLAGS.dct_coefficient_count)
 
-    audio_processor = data.AudioProcessor(data_exist=FLAGS.data_exist,
+    audio_processor = AudioProcessor(data_exist=FLAGS.data_exist,
                                           data_url=FLAGS.data_url,
                                           data_dir=FLAGS.data_dir,
                                           silence_percentage=FLAGS.silence_percentage,
