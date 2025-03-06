@@ -116,7 +116,7 @@ if __name__ == '__main__':
     parser.add_argument(
         '--tflite_path',
         type=str,
-        default=r'C:\Users\MDOKUKIN1\Desktop\GitHub\ML_KWS\ML_kws_tflu\kws_python\max\DS_CNN\DS_CNN1\ds_cnn_quantized_new_data_no_aug.tflite',
+        default=r'C:\Users\MDOKUKIN1\Desktop\GitHub\ML_KWS\ML_kws_tflu\kws_python\max\DS_CNN\DS_CNN1\ds_cnn_quantized_adidata_office_noise.tflite',
         help='Path to tflite file that will be converted.')
     parser.add_argument(
         '--output_path',

@@ -53,7 +53,7 @@ def train():
                                                                        values=learning_rates_list)
 
     # Specify the optimizer configurations.
-    optimizer = tf.keras.optimizers.Adam(learning_rate=lr_schedule)
+    optimizer = tf.keras.optimizers.Adam()
     model.compile(optimizer=optimizer,
                   loss=tf.keras.losses.SparseCategoricalCrossentropy(),
                   metrics=['accuracy'])
